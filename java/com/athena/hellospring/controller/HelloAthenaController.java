@@ -42,11 +42,14 @@ public class HelloAthenaController {
         return ResponseEntity.ok(response);
     }
     @PutMapping("/all/{id}")
+    // ko sử dụng path (all) ko có ý nghĩa 
     public ResponseEntity<StudentResponse> update(@PathVariable(name = "id") int id, @RequestBody UpdatedStudentRequest request) {
+        // đặt tên ko sử dụng tên + index : response1, user1, student1 => không hợp lý
         StudentResponse response1 = service.update(id, request);
         return ResponseEntity.ok(response1);
     }
     @DeleteMapping("delete/{id}")
+        // ko sử dụng path (delete) ko có ý nghĩa. dùng @DeleteMapping là đủ rồi
     public ResponseEntity<List<Student>> delete(@PathVariable(name = "id") int id) {
         return ResponseEntity.ok(service.delete(id));
     }
